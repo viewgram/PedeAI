@@ -1,0 +1,60 @@
+# Ignore para o JetBrains Rider
+.idea/
+.idea_modules/
+.idea_data/
+
+# Ignore configurações de projeto e dependências do Rider
+.idea/*.iml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/description.html
+.idea/.name
+
+# Build de diretórios padrão
+bin/
+obj/
+
+# Diretórios de pacotes do .NET
+packages/
+*.nupkg
+*.snupkg
+
+# Configurações e cache do Rider
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+.idea/.idea_modules/
+.idea/.idea_data/
+.idea/.idea_build/
+.idea/.idea_configurations/
+.idea/.idea_log/
+.idea/.idea_run/
+
+# Arquivos de log e temporários
+*.log
+*.tmp
+
+# Arquivos de usuário e temporários
+*.user
+*.suo
+*.userprefs
+*.csproj.user
+.vscode/
+
+# Configurações locais e arquivos gerados automaticamente pelo .NET
+*.vs/
+**/*.swp
+*.dbmdl
+*.sln.docstates
+
+# Configurações de debugging locais
+*.sln.cache
+*.sln.docthis
+
+# Arquivos de backup
+*.bak
+*~
+
+# Arquivos específicos de sistema operacional
+.DS_Store
+Thumbs.db
