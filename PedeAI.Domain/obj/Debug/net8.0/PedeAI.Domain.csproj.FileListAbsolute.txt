@@ -1,0 +1,12 @@
+/home/tka-dev/RiderProjects/PedeAI/PedeAI.Domain/bin/Debug/net8.0/PedeAI.Domain.deps.json
+/home/tka-dev/RiderProjects/PedeAI/PedeAI.Domain/bin/Debug/net8.0/PedeAI.Domain.dll
+/home/tka-dev/RiderProjects/PedeAI/PedeAI.Domain/bin/Debug/net8.0/PedeAI.Domain.pdb
+/home/tka-dev/RiderProjects/PedeAI/PedeAI.Domain/obj/Debug/net8.0/PedeAI.Domain.csproj.AssemblyReference.cache
+/home/tka-dev/RiderProjects/PedeAI/PedeAI.Domain/obj/Debug/net8.0/PedeAI.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/tka-dev/RiderProjects/PedeAI/PedeAI.Domain/obj/Debug/net8.0/PedeAI.Domain.AssemblyInfoInputs.cache
+/home/tka-dev/RiderProjects/PedeAI/PedeAI.Domain/obj/Debug/net8.0/PedeAI.Domain.AssemblyInfo.cs
+/home/tka-dev/RiderProjects/PedeAI/PedeAI.Domain/obj/Debug/net8.0/PedeAI.Domain.csproj.CoreCompileInputs.cache
+/home/tka-dev/RiderProjects/PedeAI/PedeAI.Domain/obj/Debug/net8.0/PedeAI.Domain.dll
+/home/tka-dev/RiderProjects/PedeAI/PedeAI.Domain/obj/Debug/net8.0/refint/PedeAI.Domain.dll
+/home/tka-dev/RiderProjects/PedeAI/PedeAI.Domain/obj/Debug/net8.0/PedeAI.Domain.pdb
+/home/tka-dev/RiderProjects/PedeAI/PedeAI.Domain/obj/Debug/net8.0/ref/PedeAI.Domain.dll
