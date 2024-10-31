@@ -1,20 +1,38 @@
-using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using Microsoft.Extensions.Configuration;
+using MongoDB.Bson;
 using PedeAI.Domain.Entities;
-using PedeAI.Infrastructure.Configurations;
 
-namespace PedeAI.Infrastructure;
-
-public class MongoDbContext
+namespace PedeAI.Infrastructure.Persistence.MongoDB
 {
-    private readonly IMongoDatabase _database;
-
-    public MongoDbContext(IOptions<MongoDbSettings> settings)
+    public class MongoDbContext
     {
-        var client = new MongoClient(settings.Value.ConnectionString);
-        _database = client.GetDatabase(settings.Value.DatabaseName);
-    }
+        private readonly IMongoDatabase _database;
 
-    public IMongoCollection<Product> Products => _database.GetCollection<Product>("Products");
-    public IMongoCollection<Order> Orders => _database.GetCollection<Order>("Orders");
+        public MongoDbContext(IConfiguration configuration)
+        {
+            var connectionUri = configuration.GetConnectionString("MongoDb");
+            var settings = MongoClientSettings.FromConnectionString(connectionUri);
+            settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+            var client = new MongoClient(settings);
+
+            // Verifica a conexão
+            try
+            {
+                client.GetDatabase("Cluster0").RunCommand<BsonDocument>(new BsonDocument("ping", 1));
+                Console.WriteLine("Conectado ao MongoDB com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao conectar ao MongoDB: {ex.Message}");
+                throw;
+            }
+
+            _database = client.GetDatabase("Cluster0");
+        }
+        public IMongoCollection<Product> Products => _database.GetCollection<Product>("Products");
+        // public IMongoCollection<YourEntity> YourEntities => _database.GetCollection<YourEntity>("YourEntitiesCollection");
+        
+        // Adicione mais coleções conforme necessário
+    }
 }

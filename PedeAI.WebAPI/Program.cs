@@ -1,21 +1,18 @@
 using PedeAI.Domain.Interfaces;
-using PedeAI.Infrastructure;
-using PedeAI.Infrastructure.Configurations;
+using PedeAI.Infrastructure.Persistence.MongoDB;
 using PedeAI.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.Configure<MongoDbSettings>(
-    builder.Configuration.GetSection("MongoDbSettings"));
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddSingleton<MongoDbContext>();
+
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
