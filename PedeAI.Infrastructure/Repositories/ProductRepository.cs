@@ -1,3 +1,4 @@
+using MongoDB.Bson;
 using MongoDB.Driver;
 using PedeAI.Domain.Entities;
 using PedeAI.Domain.Interfaces;
@@ -14,7 +15,7 @@ namespace PedeAI.Infrastructure.Repositories
 
         public async Task AddAsync(Product product)
         {
-            await Collection.InsertOneAsync(product);
+            await InsertAsync(product);
         }
 
         public async Task<Product> GetByIdAsync(string id)

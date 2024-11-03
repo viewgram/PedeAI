@@ -5,7 +5,6 @@ namespace PedeAI.Domain.Entities
 {
     public class Product : BaseEntity
     {
-        public string? Id { get; set; }
         public string Name { get; set; }
         public Price Price { get; set; }
         public Quantity StockQuantity { get; set; }
