@@ -16,7 +16,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="MongoDB.Bson" Version="3.0.0" />
+      <Reference Include="MongoDB.Bson">
+        <HintPath>..\..\..\.nuget\packages\mongodb.bson\3.0.0\lib\net6.0\MongoDB.Bson.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

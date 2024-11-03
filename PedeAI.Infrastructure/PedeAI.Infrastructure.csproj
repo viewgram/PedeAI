@@ -16,4 +16,8 @@
       <ProjectReference Include="..\PedeAI.Domain\PedeAI.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Entities\Base\" />
+    </ItemGroup>
+
 </Project>

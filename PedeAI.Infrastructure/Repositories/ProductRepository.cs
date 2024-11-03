@@ -1,48 +1,48 @@
 using MongoDB.Driver;
 using PedeAI.Domain.Entities;
 using PedeAI.Domain.Interfaces;
-using PedeAI.Infrastructure.Persistence.MongoDB;
 
 namespace PedeAI.Infrastructure.Repositories
 {
-    public class ProductRepository : IProductRepository
+    public class ProductRepository : BaseRepository<Product>, IProductRepository
     {
-        private readonly MongoDbContext _context;
-
-        public ProductRepository(MongoDbContext context)
+        public ProductRepository(
+            IMongoClient mongoClient,
+            IClientSessionHandle clientSessionHandle) : base(mongoClient, clientSessionHandle, "product")
         {
-            _context = context;
         }
 
         public async Task AddAsync(Product product)
         {
-            await _context.Products.InsertOneAsync(product);
+            await Collection.InsertOneAsync(product);
         }
 
         public async Task<Product> GetByIdAsync(string id)
         {
-            return await _context.Products.Find(p => p.Id == id.ToString()).FirstOrDefaultAsync();
+            var filter = Builders<Product>.Filter.Eq(s => s.Id, id);
+            return await Collection.Find(filter).FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            return await _context.Products.Find(p => true).ToListAsync();
+            return await Collection.Find(Builders<Product>.Filter.Empty).ToListAsync();
         }
 
         public async Task UpdateAsync(Product product)
         {
-            await _context.Products.ReplaceOneAsync(p => p.Id == product.Id, product);
+            var filter = Builders<Product>.Filter.Eq(p => p.Id, product.Id);
+            await Collection.ReplaceOneAsync(filter, product);
         }
 
         public async Task DeleteAsync(string id)
         {
-            await _context.Products.DeleteOneAsync(p => p.Id == id);
+            await Collection.DeleteOneAsync(p => p.Id == id);
         }
+
         public async Task DeleteAllAsync()
         {
-            
             var todos = await GetAllAsync();
-            
+
             foreach (var product in todos)
             {
                 if (product.Id != null) await DeleteAsync(product.Id);

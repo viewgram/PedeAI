@@ -1,16 +1,11 @@
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
+using PedeAI.Domain.Entities.Base;
 using PedeAI.Domain.ValueObjects;
 
 namespace PedeAI.Domain.Entities
 {
-    public class Product
+    public class Product : BaseEntity
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
-        
-        [BsonIgnoreIfDefault]
         public string Name { get; set; }
         public Price Price { get; set; }
         public Quantity StockQuantity { get; set; }
