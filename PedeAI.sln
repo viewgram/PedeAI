@@ -1,14 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PedeAI.Domain", "PedeAI.Domain\PedeAI.Domain.csproj", "{1B1E5770-4168-44AE-8E45-5F11E7E4CF03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PedeAI.Domain", "src\PedeAI.Domain\PedeAI.Domain.csproj", "{1B1E5770-4168-44AE-8E45-5F11E7E4CF03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PedeAI.Application", "PedeAI.Application\PedeAI.Application.csproj", "{03B47997-12D4-4B39-806B-B338F2073B72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PedeAI.Application", "src\PedeAI.Application\PedeAI.Application.csproj", "{03B47997-12D4-4B39-806B-B338F2073B72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PedeAI.Infrastructure", "PedeAI.Infrastructure\PedeAI.Infrastructure.csproj", "{B668E34D-A3BC-4B60-BC90-CD9FC0DE58EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PedeAI.Infrastructure", "src\PedeAI.Infrastructure\PedeAI.Infrastructure.csproj", "{B668E34D-A3BC-4B60-BC90-CD9FC0DE58EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PedeAI.WebAPI", "PedeAI.WebAPI\PedeAI.WebAPI.csproj", "{D55FFBF0-9C9D-4ED7-A843-AA01BDA2913C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PedeAI.WebAPI", "src\PedeAI.WebAPI\PedeAI.WebAPI.csproj", "{D55FFBF0-9C9D-4ED7-A843-AA01BDA2913C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PedeAI.Tests", "PedeAI.Tests\PedeAI.Tests.csproj", "{A3D02DF3-3F46-4FBB-8953-74D84F7FAE07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PedeAI.Tests", "src\PedeAI.Tests\PedeAI.Tests.csproj", "{A3D02DF3-3F46-4FBB-8953-74D84F7FAE07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
