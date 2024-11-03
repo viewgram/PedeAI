@@ -1,6 +1,6 @@
 # Etapa 1: Construção da aplicação
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-WORKDIR /src
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /app
 
 # Copia o arquivo de solução e os arquivos de projeto para o contêiner
 COPY *.sln ./
@@ -14,11 +14,11 @@ RUN dotnet restore
 
 # Copia todos os arquivos restantes e compila o projeto
 COPY . .
-WORKDIR /src/PedeAI.WebAPI
+WORKDIR /app/src/PedeAI.WebAPI
 RUN dotnet publish -c Release -o /app/publish
 
 # Etapa 2: Criação da imagem final para execução
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/publish .
 

@@ -12,6 +12,7 @@ namespace PedeAI.WebAPI
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseUrls("http://*:8080");
                 });
     }
 }

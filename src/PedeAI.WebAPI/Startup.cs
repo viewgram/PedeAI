@@ -14,7 +14,6 @@ namespace PedeAI.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
             services.AddSingleton<MongoClientProvider>();
 
             // Registra o IMongoClient usando o MongoClientProvider
@@ -44,7 +43,7 @@ namespace PedeAI.WebAPI
         {
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
-
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -54,6 +53,8 @@ namespace PedeAI.WebAPI
             app.UseEndpoints(endpoints =>
                 endpoints.MapControllers()
             );
+            
+            
 
             if (env.IsDevelopment())
             {
