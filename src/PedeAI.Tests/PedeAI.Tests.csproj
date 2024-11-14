@@ -10,7 +10,6 @@
       <Folder Include="ApplicationTests\" />
       <Folder Include="DomainTests\" />
       <Folder Include="InfrastuctureTests\" />
-      <Folder Include="obj\Debug\net8.0\" />
       <Folder Include="WebAPITests\" />
     </ItemGroup>
 
