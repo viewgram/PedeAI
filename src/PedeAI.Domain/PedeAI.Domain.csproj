@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <Folder Include="Aggregates\" />
+      <Folder Include="obj\Debug\net8.0\" />
       <Folder Include="Services\" />
     </ItemGroup>
 

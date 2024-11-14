@@ -4,6 +4,8 @@ namespace PedeAI.Domain.Entities;
 
 public class Order
 {
+    //validation missing
+    
     public Guid Id { get; private set; }
     public DateTime CreatedAt { get; private set; }
     private readonly List<OrderItem> _items;

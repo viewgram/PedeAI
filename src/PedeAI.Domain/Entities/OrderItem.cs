@@ -4,6 +4,7 @@ namespace PedeAI.Domain.Entities;
 
 public class OrderItem
 {
+    //validation missing
     public Product Product { get; private set; }
     public Quantity Quantity { get; private set; }
 
