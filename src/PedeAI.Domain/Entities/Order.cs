@@ -1,3 +1,4 @@
+using PedeAI.Domain.Validation;
 using PedeAI.Domain.ValueObjects;
 
 namespace PedeAI.Domain.Entities;
@@ -26,5 +27,11 @@ public class Order
     public decimal GetTotalAmount()
     {
         return _items.Sum(item => item.GetTotal());
+    }
+
+    private void ValidateOrder(Guid orderId)
+    {
+        DomainExceptionValidation.When(orderId == null,
+            "Invalid Id, Id is required");
     }
 }
