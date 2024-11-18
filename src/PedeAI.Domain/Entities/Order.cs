@@ -1,11 +1,10 @@
+using PedeAI.Domain.Validation;
 using PedeAI.Domain.ValueObjects;
 
 namespace PedeAI.Domain.Entities;
 
 public class Order
 {
-    //validation missing
-    
     public Guid Id { get; private set; }
     public DateTime CreatedAt { get; private set; }
     private readonly List<OrderItem> _items;
@@ -28,5 +27,11 @@ public class Order
     public decimal GetTotalAmount()
     {
         return _items.Sum(item => item.GetTotal());
+    }
+
+    private void ValidateOrder(Guid orderId)
+    {
+        DomainExceptionValidation.When(orderId == null,
+            "Invalid Id, Id is required");
     }
 }
