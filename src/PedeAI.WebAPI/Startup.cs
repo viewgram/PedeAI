@@ -27,6 +27,7 @@ namespace PedeAI.WebAPI
                 c.GetService<IMongoClient>()?.StartSession());
 
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
 
             services.AddSwaggerGen(c =>
             {
@@ -53,8 +54,6 @@ namespace PedeAI.WebAPI
             app.UseEndpoints(endpoints =>
                 endpoints.MapControllers()
             );
-            
-            
 
             if (env.IsDevelopment())
             {

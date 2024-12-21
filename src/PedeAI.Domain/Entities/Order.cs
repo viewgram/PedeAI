@@ -1,21 +1,13 @@
+using PedeAI.Domain.Entities.Base;
 using PedeAI.Domain.ValueObjects;
 
 namespace PedeAI.Domain.Entities;
 
-public class Order
+public abstract class Order : BaseEntity
 {
-    public Guid Id { get; private set; }
-    public DateTime CreatedAt { get; private set; }
-    private readonly List<OrderItem> _items;
+    private readonly List<OrderItem> _items = new();
 
     public IReadOnlyCollection<OrderItem> Items => _items.AsReadOnly();
-
-    public Order()
-    {
-        Id = Guid.NewGuid();
-        CreatedAt = DateTime.Now;
-        _items = new List<OrderItem>();
-    }
 
     public void AddItem(Product product, Quantity quantity)
     {

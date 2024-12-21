@@ -5,10 +5,8 @@ namespace PedeAI.Domain.Entities.Base;
 
 public abstract class BaseEntity
 {
-    [BsonElement("Id")]
-    [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
     public virtual string? Id { get; private set; }
-
+    public DateTime CreatedAt { get; } = DateTime.Now;
     public void SetId(string id) =>
         Id = id;
 }

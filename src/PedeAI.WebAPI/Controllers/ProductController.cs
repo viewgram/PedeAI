@@ -6,20 +6,13 @@ namespace PedeAI.WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProductController : ControllerBase
+    public class ProductController(IProductRepository productRepository) : ControllerBase
     {
-        private readonly IProductRepository _productRepository;
-
-        public ProductController(IProductRepository productRepository)
-        {
-            _productRepository = productRepository;
-        }
-
         // POST: api/product
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromBody] Product product)
         {
-            await _productRepository.AddAsync(product);
+            await productRepository.AddAsync(product);
             return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
         }
 
@@ -27,17 +20,15 @@ namespace PedeAI.WebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProduct(string id)
         {
-            var product = await _productRepository.GetByIdAsync(id);
-            if (product == null)
-                return NotFound();
+            var product = await productRepository.GetByIdAsync(id);
             return Ok(product);
         }
 
-        // GET: api/product
-        [HttpGet]
+        // GET: api/products
+        [HttpGet(nameof(GetAllProducts))]
         public async Task<IActionResult> GetAllProducts()
         {
-            var products = await _productRepository.GetAllAsync();
+            var products = await productRepository.GetAllAsync();
             return Ok(products);
         }
 
@@ -48,11 +39,11 @@ namespace PedeAI.WebAPI.Controllers
             if (id.ToString() != product.Id)
                 return BadRequest("ID do produto inconsistente");
 
-            var existingProduct = await _productRepository.GetByIdAsync(id.ToString());
+            var existingProduct = await productRepository.GetByIdAsync(id.ToString());
             if (existingProduct == null)
                 return NotFound();
 
-            await _productRepository.UpdateAsync(product);
+            await productRepository.UpdateAsync(product);
             return NoContent();
         }
 
@@ -60,19 +51,12 @@ namespace PedeAI.WebAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(string id)
         {
-            var existingProduct = await _productRepository.GetByIdAsync(id);
+            var existingProduct = await productRepository.GetByIdAsync(id);
             if (existingProduct == null)
                 return NotFound();
 
-            await _productRepository.DeleteAsync(id);
+            await productRepository.DeleteAsync(id);
             return NoContent();
-        }
-        
-        [HttpDelete]
-        public async Task<IActionResult> DeleteAllProducts()
-        {
-            await _productRepository.DeleteAllAsync();
-            return Ok("Todos os produtos deletados com sucesso!");
         }
     }
 }

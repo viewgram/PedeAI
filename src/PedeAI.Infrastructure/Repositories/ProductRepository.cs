@@ -39,15 +39,5 @@ namespace PedeAI.Infrastructure.Repositories
         {
             await Collection.DeleteOneAsync(p => p.Id == id);
         }
-
-        public async Task DeleteAllAsync()
-        {
-            var todos = await GetAllAsync();
-
-            foreach (var product in todos)
-            {
-                if (product.Id != null) await DeleteAsync(product.Id);
-            }
-        }
     }
 }
